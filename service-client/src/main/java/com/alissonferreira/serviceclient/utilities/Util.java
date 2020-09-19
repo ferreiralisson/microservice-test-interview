@@ -1,14 +1,17 @@
 package com.alissonferreira.serviceclient.utilities;
 
-import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Util {
 	
 	private Util() { }
 	
-	public static Object getRestTamplate(String url, Class<?> typeClassGeneric) {
-		RestTemplate restTemplate = new RestTemplate();
-		return restTemplate.getForObject(url, typeClassGeneric.getClass());
+	public static String asJsonString(Object obj) {
+	    try {
+	        return new ObjectMapper().writeValueAsString(obj);
+	    } catch (Exception e) {
+	        throw new RuntimeException(e);
+	    }
 	}
 
 }

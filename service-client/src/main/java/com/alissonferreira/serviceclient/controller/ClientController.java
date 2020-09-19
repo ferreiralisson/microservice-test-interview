@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alissonferreira.serviceclient.dto.ClientDTO;
 import com.alissonferreira.serviceclient.exception.ResourceNotFoundException;
 import com.alissonferreira.serviceclient.model.Client;
 import com.alissonferreira.serviceclient.service.IClientService;
@@ -27,9 +26,9 @@ public class ClientController {
 	private IClientService clientService;
 
 	@PostMapping
-	public Client add(@RequestBody ClientDTO clientDTO, HttpServletResponse response) {
+	public Client add(@RequestBody Client client, HttpServletResponse response) {
 
-		Client added = clientService.addClient(clientDTO);
+		Client added = clientService.addClient(client);
 
 		if (added != null) {
 			response.setStatus(HttpStatus.CREATED.value());
@@ -37,7 +36,7 @@ public class ClientController {
 
 		return added;
 	}
-	
+
 	@GetMapping
 	public Client findClientByName(@RequestParam(name = "name") String name) {
 		try {
@@ -45,9 +44,9 @@ public class ClientController {
 		} catch (ResourceNotFoundException e) {
 			throw new ResourceNotFoundException(e.getMessage());
 		}
-		
+
 	}
-	
+
 	@GetMapping(path = "/{id}")
 	public Client findClientById(@PathVariable(name = "id") Long id) {
 		try {
@@ -55,19 +54,19 @@ public class ClientController {
 		} catch (ResourceNotFoundException e) {
 			throw new ResourceNotFoundException(e.getMessage());
 		}
-		
+
 	}
-	
+
 	@DeleteMapping(path = "/{id}")
 	public void delete(@PathVariable(name = "id") Long id) {
 		clientService.removeClient(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
-	public Client update(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
-		
+	public Client update(@PathVariable Long id, @RequestBody Client client) {
+
 		try {
-			return clientService.updateClient(id, clientDTO);
+			return clientService.updateClient(id, client);
 		} catch (ResourceNotFoundException e) {
 			throw new ResourceNotFoundException(e.getMessage());
 		}

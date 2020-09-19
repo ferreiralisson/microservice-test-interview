@@ -30,6 +30,25 @@ public class City {
 	public City() {
 		// Constructor default
 	}
+	
+	
+
+	public City(Long id, String name, StatesOfBrazil stateOfBrasil) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.stateOfBrasil = stateOfBrasil;
+	}
+
+
+
+	public City(String name, StatesOfBrazil stateOfBrasil) {
+		super();
+		this.name = name;
+		this.stateOfBrasil = stateOfBrasil;
+	}
+
+
 
 	public Long getId() {
 		return id;

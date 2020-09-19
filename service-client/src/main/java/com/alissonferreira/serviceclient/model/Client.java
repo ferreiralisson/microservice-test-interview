@@ -47,13 +47,32 @@ public class Client implements Serializable {
 		// Constructor default
 	}
 
-	public Client(String name, Gender gender, Date dateOfBirth, Integer age, Long cityId) {
+	
+
+	public Client(String name, Gender gender, Date dateOfBirth, Integer age, Long cityId, City city) {
+		super();
 		this.name = name;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.age = age;
 		this.cityId = cityId;
+		this.city = city;
 	}
+
+
+
+	public Client(Long id, String name, Gender gender, Date dateOfBirth, Integer age, Long cityId, City city) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.age = age;
+		this.cityId = cityId;
+		this.city = city;
+	}
+	
+	
 
 	public Client(Long id, String name, Gender gender, Date dateOfBirth, Integer age, Long cityId) {
 		super();
@@ -64,6 +83,8 @@ public class Client implements Serializable {
 		this.age = age;
 		this.cityId = cityId;
 	}
+
+
 
 	public Long getId() {
 		return id;
