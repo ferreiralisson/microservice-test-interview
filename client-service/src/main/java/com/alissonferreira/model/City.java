@@ -12,7 +12,7 @@ public class City {
 	private String name;
 
 	@Enumerated(EnumType.STRING)
-	private StatesOfBrazil stateOfBrasil;
+	private StatesOfBrazil state;
 
 	public City() {
 		// Constructor default
@@ -34,12 +34,12 @@ public class City {
 		this.name = name;
 	}
 
-	public StatesOfBrazil getStateOfBrasil() {
-		return stateOfBrasil;
+	public StatesOfBrazil getState() {
+		return state;
 	}
 
-	public void setStateOfBrasil(StatesOfBrazil stateOfBrasil) {
-		this.stateOfBrasil = stateOfBrasil;
+	public void setState(StatesOfBrazil state) {
+		this.state = state;
 	}
 
 }
