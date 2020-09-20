@@ -20,7 +20,7 @@
 	</properties>
 	
 	<modules>
-		<module>service-city</module>
+		<module>city-service</module>
 		<module>service-client</module>
 		<module>gateway</module>
 		<module>discovery</module>
